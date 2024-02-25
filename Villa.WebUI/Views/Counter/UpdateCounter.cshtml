@@ -1,0 +1,18 @@
+﻿@model UpdateCounterDto
+@{
+    ViewData["Title"] = "Sayaç Bilgisi Güncelleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Değer</label>
+    <input type="text" asp-for="Count" class="form-control" />
+    <br />
+    <button class="btn btn-outline-dark">Güncelle</button>
+
+</form>
+

@@ -1,0 +1,71 @@
+﻿@model List<ResultDealDto>
+@{
+    ViewData["Title"] = "Tekliflerimiz";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+   
+
+    <table class="table table-hover table-bordered">
+        @{
+            int count = 0;
+        }
+        <tr>
+            <th>#</th>
+            <th>İlan Türü </th>
+            <th>Resim Url</th>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>m2</th>
+            <th>Kat </th>
+            <th>Park Alanı </th>
+            <th>Ödeme</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.Type</td>
+                <td>@item.ImageUrl</td>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.Square</td>
+                <td>@item.Floor</td>
+                <td>@item.HasParkingArea</td>
+                <td>@item.PaymentType</td>
+
+                <td>
+                    <button onclick="deletedeal(this)" id="@item.Id" type="submit" class="btn btn-outline-danger">Sil</button>
+                    <a asp-controller="Deal" asp-action="UpdateDeal" asp-route-id="@item.Id" class="btn btn-outline-info">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <a asp-controller="Deal" asp-action="CreateDeal" class="btn btn-outline-dark">Yeni Teklif Ekle</a>
+
+
+
+    <script>
+        function deletedeal(button) {
+
+            var id = button.getAttribute("id");
+            Swal.fire({
+
+                title: 'Silmek istediğinize emin misiniz?',
+                text: 'Bu öğeyi silerseniz geri alamazsınız!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Evet, Sil!',
+                cancelButtonText: 'İptal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/Deal/DeleteDeal/" + id;
+                }
+            });
+        }
+    </script>
+
