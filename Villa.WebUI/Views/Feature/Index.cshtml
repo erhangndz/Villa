@@ -1,10 +1,9 @@
-﻿@model List<ResultDealDto>
+﻿
+@model List<ResultFeatureDto>
 @{
-    ViewData["Title"] = "Tekliflerimiz";
+    ViewData["Title"] = "Öne Çıkanlar";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-
 
 
 <table class="table table-hover table-bordered">
@@ -13,14 +12,12 @@
     }
     <tr>
         <th>#</th>
-        <th>İlan Türü </th>
         <th>Resim Url</th>
         <th>Başlık</th>
-        <th>Açıklama</th>
+        <th>Alt Başlık</th>
         <th>m2</th>
-        <th>Kat </th>
-        <th>Park Alanı </th>
-        <th>Ödeme</th>
+        <th>Kontrat Türü </th>
+        <th>Güvenlik  </th>
         <th></th>
 
     </tr>
@@ -29,29 +26,28 @@
         count++;
         <tr>
             <th>@count</th>
-            <td>@item.Type</td>
-            <td>@item.ImageUrl</td>
+            <td><img src="@item.ImageUrl" style="height:50px;width:50px" /></td>
             <td>@item.Title</td>
-            <td>@(item.Description.Length>50 ? item.Description.Substring(0,50) + "..." : item.Description)</td>
+            <td>@item.SubTitle</td>
             <td>@item.Square</td>
-            <td>@item.Floor</td>
-            <td>@(item.HasParkingArea ? "Var" : "Yok")</td>
-            <td>@item.PaymentType</td>
+            <td>@item.Contract</td>
+            <td>@item.Safety </td>
+            
 
             <td>
-                <button onclick="deleteDeal(this)" id="@item.Id" class="btn btn-outline-danger">Sil</button>
-                <a asp-controller="Deal" asp-action="UpdateDeal" asp-route-id="@item.Id" class="btn btn-outline-info">Güncelle</a>
+                <button onclick="deleteFeature(this)" id="@item.Id" class="btn btn-outline-danger">Sil</button>
+                <a asp-controller="Feature" asp-action="UpdateFeature" asp-route-id="@item.Id" class="btn btn-outline-info">Güncelle</a>
             </td>
         </tr>
     }
 </table>
 
-<a asp-controller="Deal" asp-action="CreateDeal" class="btn btn-outline-dark">Yeni Teklif Ekle</a>
+<a asp-controller="Feature" asp-action="CreateFeature" class="btn btn-outline-dark">Yeni Öne Çıkan Bilgisi Ekle</a>
 
 
 
 <script>
-    function deleteDeal(button) {
+    function deleteFeature(button) {
         var id = button.getAttribute("id");
         Swal.fire({
 
@@ -65,7 +61,7 @@
             cancelButtonText: 'İptal'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Deal/DeleteDeal/" + id;
+                window.location.href = "/Feature/DeleteFeature/" + id;
             }
         });
     };
@@ -74,4 +70,3 @@
 
 
 </script>
-

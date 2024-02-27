@@ -1,0 +1,32 @@
+﻿@model CreateFeatureDto
+@{
+    ViewData["Title"] = "Yeni Öne Çıkan Bilgisi Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post">
+ 
+    <label>Resim Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br />
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Alt Başlık</label>
+    <input type="text" asp-for="SubTitle" class="form-control" />
+    <br />
+    <label>Metrekare</label>
+    <input type="text" asp-for="Square" class="form-control" />
+    <br />
+    <label>Kontrat Türü</label>
+    <input type="text" asp-for="Contract" class="form-control" />
+    <br />
+    <label>Güvenlik Durumu</label>
+    <input type="text" asp-for="Safety" class="form-control" />
+    <br />
+    
+  
+    <button class="btn btn-outline-dark">Kaydet</button>
+
+</form>

@@ -1,11 +1,11 @@
-﻿@model CreateDealDto
+﻿@model UpdateDealDto
 @{
-    ViewData["Title"] = "Yeni Teklif Ekleme Sayfası";
+    ViewData["Title"] = "Teklif Güncelleme Sayfası";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
 <form method="post">
+    <input type="hidden" asp-for="Id" />
     <label>İlan Türü</label>
     <input type="text" asp-for="Type" class="form-control" />
     <br />
@@ -21,22 +21,25 @@
     <label>Metrekare</label>
     <input type="text" asp-for="Square" class="form-control" />
     <br />
+    
     <label>Kaçıncı Kat</label>
     <input type="text" asp-for="Floor" class="form-control" />
     <br />
     <label>Oda Sayısı</label>
     <input type="text" asp-for="RoomCount" class="form-control" />
     <br />
+   
     <label>Ödeme Türü</label>
     <input type="text" asp-for="PaymentType" class="form-control" />
     <br />
     <label>Park Alanı</label>
-<select asp-for="HasParkingArea" class="form-control">
-    <option>Seçiminizi Yapın</option>
-    <option value="true">Var</option>
-    <option value="false">Yok</option>
-</select>
+    <select asp-for="HasParkingArea" class="form-control">
+        <option>Seçiminizi Yapın</option>
+        <option value="true">Var</option>
+        <option value="false">Yok</option>
+    </select>
     <br />
     <button class="btn btn-outline-dark">Kaydet</button>
 
-    </form>
+</form>
+
