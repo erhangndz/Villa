@@ -1,0 +1,40 @@
+﻿
+@model List<ResultProductDto>
+@{
+    ViewData["Title"] = "Mülklerimiz";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-hover table-bordered">
+    @{
+        int count = 0;
+    }
+    <tr>
+        <th>#</th>
+        <th>Resim </th>
+        <th>Başlık</th>
+        <th>Kategori</th>
+        <th>Fiyat</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td><img src="@item.ImageUrl" style="height:75px;width:75px" /></td>
+            <td>@item.Title</td>
+            <td>@item.Category</td>
+            <td>@item.Price ₺</td>
+
+            <td>
+                <a asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.Id" class="btn btn-outline-danger">Sil</a>
+                <a asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@item.Id" class="btn btn-outline-info">Güncelle</a>
+                <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@item.Id" class="btn btn-outline-primary">Detaylar</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-controller="Product" asp-action="CreateProduct" class="btn btn-outline-dark">Yeni Mülk Ekle</a>
+

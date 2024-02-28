@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using Villa.Business.Abstract;
-using Villa.Dto.Dtos.CounterDtos;
 using Villa.Dto.Dtos.DealDtos;
 using Villa.Entity.Entities;
 

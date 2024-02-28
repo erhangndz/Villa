@@ -1,0 +1,46 @@
+﻿@model CreateProductDto
+@{
+    ViewData["Title"] = "Yeni Mülk Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Resim Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br />
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Kategori</label>
+<select asp-for="Category" class="form-control">
+    <option >Kategoriyi Seçin</option>
+    <option value="Modern">Modern</option>
+    <option value="Çatı Katı">Çatı Katı</option>
+    <option value="Lüks">Lüks</option>
+    <option value="Ahşap">Ahşap</option>
+</select>
+
+    <br />
+    <label>Fiyat</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <br />
+    <label>Oda Sayısı</label>
+    <input type="text" asp-for="BedroomCount" class="form-control" />
+    <br />
+    <label>Banyo Sayısı</label>
+    <input type="text" asp-for="BathroomCount" class="form-control" />
+    <br />
+    <label>Metrekare Bilgisi</label>
+    <input type="text" asp-for="Area" class="form-control" />
+    <br />
+    <label>Kaçıncı Kat</label>
+    <input type="text" asp-for="Floor" class="form-control" />
+    <br />
+    <label>Park Alanı Sayısı</label>
+    <input type="text" asp-for="ParkingCount" class="form-control" />
+    <br />
+    
+    <button class="btn btn-outline-dark">Kaydet</button>
+
+</form>
+
