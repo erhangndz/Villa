@@ -1,12 +1,8 @@
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using System.Reflection;
-using Villa.Business.Abstract;
-using Villa.Business.Concrete;
-using Villa.DataAccess.Abstract;
 using Villa.DataAccess.Context;
-using Villa.DataAccess.EntityFramework;
-using Villa.DataAccess.Repositories;
 using Villa.WebUI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,9 +20,10 @@ builder.Services.AddDbContext<VillaContext>(option =>
     option.UseMongoDB(mongoDatabase.Client, mongoDatabase.DatabaseNamespace.DatabaseName);
 });
 
-
+builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 
