@@ -1,0 +1,31 @@
+﻿@model CreateSubHeaderDto
+@{
+    ViewData["Title"] = "Yeni Üst Bilgi Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Adres</label>
+    <input type="text" asp-for="Address" class="form-control" />
+    <br />
+    <label>Email</label>
+    <input type="email" asp-for="Email" class="form-control" />
+    <br />
+    <label>Facebook</label>
+    <input type="text" asp-for="Facebook" class="form-control" />
+    <br />
+    <label>Twitter</label>
+    <input type="text" asp-for="Twitter" class="form-control" />
+    <br />
+    <label>Linkedin</label>
+    <input type="text" asp-for="Linkedin" class="form-control" />
+    <br />
+    <label>Instagram</label>
+    <input type="text" asp-for="Instagram" class="form-control" />
+    <br />
+    
+
+    <button class="btn btn-outline-dark">Kaydet</button>
+
+</form>
+
