@@ -1,0 +1,66 @@
+﻿@model List<ResultFeatureDto>
+
+<div class="featured section">
+    <div class="container">
+       
+
+
+            <div class="row">
+
+            @foreach (var item in Model)
+            {
+                    <div class="col-lg-4">
+                        <div class="left-image">
+                            <img src="@item.ImageUrl" alt="">
+                            <a href="property-details.html"><img src="@item.ImageUrl" alt="" style="max-width: 60px; padding: 0px;"></a>
+                        </div>
+                    </div>
+            }
+                    <div class="col-lg-5">
+                        @foreach (var item in Model)
+                {
+                    <div class="section-heading">
+                        <h6>| @item.Title</h6>
+                        <h2>@item.SubTitle</h2>
+                    </div>
+                }
+                        
+                        @await Component.InvokeAsync("_DefaultQuestion")
+                    </div>
+              
+                
+
+               
+
+
+            @foreach (var item in Model)
+            {
+                
+            
+                <div class="col-lg-3">
+                    <div class="info-table">
+                        <ul>
+                            <li>
+                                <img src="~/VillaAgency-1.0.0/assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                                <h4>@item.Square m2<br><span>Toplam Alan</span></h4>
+                            </li>
+                            <li>
+                                <img src="~/VillaAgency-1.0.0/assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                                <h4>Kontrat Türü<br><span>@item.Contract</span></h4>
+                            </li>
+                            <li>
+                                <img src="~/VillaAgency-1.0.0/assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                                <h4>Ödeme Türü<br><span>@item.Payment</span></h4>
+                            </li>
+                            <li>
+                                <img src="~/VillaAgency-1.0.0/assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
+                                <h4>Güvenlik Durumu<br><span>@item.Safety</span></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+            </div>
+       
+    </div>
+</div>

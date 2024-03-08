@@ -1,0 +1,47 @@
+﻿@model List<ResultQuestDto>  
+@{
+    int count = 0;
+}
+<div class="accordion" id="accordionExample">
+    @foreach (var item in Model)
+    {
+        count++;
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading_@count">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@count" aria-expanded="true" aria-controls="collapse_@count">
+                   @item.Question
+                </button>
+            </h2>
+            <div id="collapse_@count" class="accordion-collapse collapse show" aria-labelledby="heading_@count" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                   @item.Answer
+                </div>
+            </div>
+        </div>
+    }
+            
+           @*  <div class="accordion-item">
+            <h2 class="accordion-header" id="heading_2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            How does this work ?
+            </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="heading_2" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+            Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="heading_3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Why is Villa Agency the best ?
+            </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="heading_3" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+            Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+            </div>
+            </div> *@
+            </div> 
