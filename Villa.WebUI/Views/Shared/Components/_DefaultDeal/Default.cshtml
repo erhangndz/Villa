@@ -1,0 +1,82 @@
+﻿@model List<ResultDealDto>
+@{
+    int titleCount = 0;
+    var titleActive = "";
+
+    int contentCount = 0;
+    var contentActive = "";
+
+    var selected = "";
+}
+<div class="section best-deal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section-heading">
+                    <h6>| En İyi Tekliflerimiz</h6>
+                    <h2>İstediğiniz Türde Villalarımızı İnceleyin.</h2>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="tabs-content">
+                    <div class="row">
+                        <div class="nav-wrapper ">
+                            <ul class="nav nav-tabs" role="tablist">
+                                @foreach (var item in Model)
+                                {
+
+                                     titleCount++;
+
+
+                                    if (titleCount == 1) { titleActive = "active"; selected = "true"; } else { titleActive = ""; selected = "false"; }
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link @titleActive" id="@item.Type-tab" data-bs-toggle="tab" data-bs-target="#@item.Type" type="button" role="tab" aria-controls="@item.Type" aria-selected="@selected">@item.Type</button>
+                                    </li>
+                                }
+                               
+                               
+                            </ul>
+                        </div>
+                       
+                            <div class="tab-content" id="myTabContent">
+                            @foreach (var item in Model)
+                            {
+                                contentCount++;
+                                if (contentCount == 1) { contentActive = "show active"; } else { contentActive = ""; }
+                                <div class="tab-pane fade @contentActive" id="@item.Type" role="tabpanel" aria-labelledby="@item.Type-tab">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="info-table">
+                                                <ul>
+                                                    <li>Metrekare Bilgisi <span>@item.Square m2</span></li>
+                                                    <li>Bulunduğu Kat <span>@item.Floor</span></li>
+                                                    <li>Oda Sayısı <span>@item.RoomCount</span></li>
+                                                    <li>Park Alanı <span>@(item.HasParkingArea ? "Var" : "Yok")</span></li>
+                                                    <li>Ödeme Türü <span>@item.PaymentType</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <img src="@item.ImageUrl" alt="">
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h4>@item.Title</h4>
+                                            <p>
+                                                @item.Description
+                                            </p>
+                                            <div class="icon-button">
+                                                <a href="#"><i class="fa fa-calendar"></i> Ziyaret Planlayın</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                       
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

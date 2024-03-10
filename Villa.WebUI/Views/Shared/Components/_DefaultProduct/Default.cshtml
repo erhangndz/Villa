@@ -1,0 +1,39 @@
+﻿@model List<ResultProductDto>
+
+<div class="properties section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="section-heading text-center">
+                    <h6>| Mülklerimiz</h6>
+                    <h2>Beğeneceğiniz en iyi mülkleri sunuyoruz.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <a href="property-details.html"><img src="@item.ImageUrl" alt=""></a>
+                        <span class="category">@item.Category</span>
+                        <h6>@item.Price ₺</h6>
+                        <h4><a href="property-details.html">@item.Title</a></h4>
+                        <ul>
+                            <li>Oda Sayısı: <span>@item.BedroomCount</span></li>
+                            <li>Banyo Sayısı: <span>@item.BathroomCount</span></li>
+                            <li>Metrekare: <span>@item.Area m2</span></li>
+                            <li>Bulunduğu Kat: <span>@item.Floor</span></li>
+                            <li>Park Alanı Sayısı: <span>@item.ParkingCount adet</span></li>
+                        </ul>
+                        <div class="main-button">
+                            <a href="#">Ziyaret Planla</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            
+        </div>
+    </div>
+</div>
