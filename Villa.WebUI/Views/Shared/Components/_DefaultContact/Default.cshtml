@@ -1,0 +1,46 @@
+﻿@model List<ResultContactDto>
+
+<div class="contact section" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="section-heading text-center">
+                    <h6>| Bizimle İletişime Geçin</h6>
+                    <h2>Emlak Danışmanlarımızla İletişime Geçebilirsiniz</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-content">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                
+            
+            <div class="col-lg-7">
+                <div id="map">
+                    <iframe src="@item.MapUrl" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="item phone">
+                            <img src="~/VillaAgency-1.0.0/assets/images/phone-icon.png" alt="" style="max-width: 52px;">
+                            <h6>@item.Phone<br><span>Telefon Numarası</span></h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="item email">
+                            <img src="~/VillaAgency-1.0.0/assets/images/email-icon.png" alt="" style="max-width: 52px;">
+                            <h6>@item.Email<br><span> Email</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+          @await Component.InvokeAsync("_DefaultMessage")
+        </div>
+    </div>
+</div>

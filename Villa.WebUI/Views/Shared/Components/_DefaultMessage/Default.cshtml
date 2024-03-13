@@ -1,0 +1,35 @@
+﻿<div class="col-lg-5">
+    <form asp-controller="SendMessage" asp-action="SendMessage" method="post" id="contact-form">
+        <div class="row">
+            <div class="col-lg-12">
+                <fieldset>
+                    <label for="name">Ad Soyad</label>
+                    <input type="name" name="Name" id="name" placeholder="Adınız Soyadınız..."  required>
+                </fieldset>
+            </div>
+            <div class="col-lg-12">
+                <fieldset>
+                    <label for="email">Email </label>
+                    <input type="text" name="Email" id="email" placeholder="E-mail Adresiniz" required="">
+                </fieldset>
+            </div>
+            <div class="col-lg-12">
+                <fieldset>
+                    <label for="subject">Konu</label>
+                    <input type="subject" name="Subject" id="subject" placeholder="Konu..." autocomplete="on">
+                </fieldset>
+            </div>
+            <div class="col-lg-12">
+                <fieldset>
+                    <label for="message">Mesaj</label>
+                    <textarea name="MessageContent" id="message" placeholder="Mesajınızı buraya yazabilirsiniz"></textarea>
+                </fieldset>
+            </div>
+            <div class="col-lg-12">
+                <fieldset>
+                    <button type="submit" id="form-submit" class="orange-button">Gönder</button>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
